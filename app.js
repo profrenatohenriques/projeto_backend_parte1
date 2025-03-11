@@ -22,8 +22,8 @@ const connection = mysql.createConnection({
   host: process.env.DB_HOST || '127.0.0.1',       // Endereço do servidor MySQL
   user: process.env.DB_USER || 'root',            // user do MySQL
   password: process.env.DB_PASSWORD || '',            // Senha do MySQL
-  database: process.env.DB_DATABASE || 'psi',         // Nome da base de dados
-  port: process.env.DB_DATABASE || 3306
+  database: process.env.DB_NAME || 'psi',         // Nome da base de dados
+  port: process.env.DB_PORT || 3306
 });
 
 // Conexão à base de dados
