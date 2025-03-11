@@ -6,7 +6,7 @@ const mysql = require('mysql2');
 const app = express()
 
 // Constantes do Projeto
-const port = 3000
+const port = process.env.PORT || 8080;
 const NOME_TABELA = "songs"
 
 // Middleware para parse de JSON no corpo dos pedidos
@@ -19,11 +19,11 @@ app.listen(port, () => {
 
 // Criação da  com a base de dados
 const connection = mysql.createConnection({
-  host: '127.0.0.1',       // Endereço do servidor MySQL
-  user: 'root',            // user do MySQL
-  password: '',            // Senha do MySQL
-  database: 'psi',         // Nome da base de dados
-  port: 3306
+  host: process.env.DB_HOST || '127.0.0.1',       // Endereço do servidor MySQL
+  user: process.env.DB_USER || 'root',            // user do MySQL
+  password: process.env.DB_PASSWORD || '',            // Senha do MySQL
+  database: process.env.DB_DATABASE || 'psi',         // Nome da base de dados
+  port: process.env.DB_DATABASE || 3306
 });
 
 // Conexão à base de dados
